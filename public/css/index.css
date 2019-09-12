@@ -1,0 +1,15 @@
+body {
+  background-image: url("/images/dandelion-index-background-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ul {
+  font-family: arial, sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+ul.li {
+  color: white;
+}
