@@ -16,10 +16,10 @@ class CreateCategoryInterestTable extends Migration
         Schema::create('category_interest', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->unsignedBigInteger('interests_id');
-            $table->foreign('interests_id')->references('id')->on('interests');
-            $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('interest_id');
+            $table->foreign('interest_id')->references('id')->on('interests');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

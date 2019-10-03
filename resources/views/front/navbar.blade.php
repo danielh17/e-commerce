@@ -27,10 +27,12 @@
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <form class="" action="/" method="post">
+            @csrf
+            <input type="text" name="" value="" placeholder="email">
+            <input type="text" name="" value="" placeholder="password">
+            <button type="submit" name="button">Login</button>
+          </form>
         </div>
       </li>
       @else

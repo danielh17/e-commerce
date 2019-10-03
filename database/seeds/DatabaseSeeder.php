@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
         $interests = factory(App\Interest::class)->times(5)->create();
         $products = factory(App\Product::class)->times(10)->create();
 
-        //foreach ($products as $oneProduct) {
-          //$oneProduct->category()->attach($categories->random(3));
-        //}
+        foreach ($products as $oneProduct) {
+          $oneProduct->category()->attach($categories->random(3));
+        }
 
-        //foreach ($interests as $oneInterest) {
-          //$oneInterest->category()->attach($categories->random(2));
-        //}
+        foreach ($interests as $oneInterest) {
+          $oneInterest->category()->attach($categories->random(2));
+        }
     }
 }

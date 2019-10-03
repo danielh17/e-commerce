@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+use App\Interest;
+
 class InterestController extends Controller
 {
     /**
@@ -46,7 +49,9 @@ class InterestController extends Controller
      */
     public function show($id)
     {
-        //
+        $productsInterest = Product::find($id);
+
+        return view('front.Interest.show-products', compact('productsInterest'));
     }
 
     /**
