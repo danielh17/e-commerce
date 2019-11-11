@@ -21,6 +21,12 @@ class CategoryController extends Controller
         return view('front.index', compact('categories', 'products'));
     }
 
+    public function showProducts()
+    {
+        $categories = Category::all();
+        return view('front.Category.show-products', compact('categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

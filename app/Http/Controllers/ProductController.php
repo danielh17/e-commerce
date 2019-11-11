@@ -49,7 +49,7 @@ class ProductController extends Controller
     {
         $productsCategories = Product::find($id);
 
-        return view('front.Categories.show-product', compact('productsCategories'));
+        return view('front.Categories.show-products', compact('productsCategories'));
     }
 
     /**

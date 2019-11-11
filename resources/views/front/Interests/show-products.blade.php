@@ -5,5 +5,3 @@
 @section('stylesheet')
 <link rel="stylesheet" href="{{ URL::asset('/css/index.css') }}">
 @endsection
-
-@section('mainContent')

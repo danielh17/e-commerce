@@ -34,7 +34,7 @@
       <ul style="margin-top:25px">
         @foreach ($products as $product)
         <li>
-          <a href="/categories/{{ $category->id }}">{{$category->name}}</a>
+          <a href="/products/{{ $product->id }}">{{$product->name}}</a>
         </li>
         @endforeach
       </ul>

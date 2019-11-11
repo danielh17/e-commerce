@@ -11,10 +11,11 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/', 'CategoryController@index');
 Route::post('/interests', 'InterestController@index');
-Route::post('/products/{id}', 'ProductController@show');
+//Route::post('/products/{id}', 'ProductController@show');
+Route::get('/categories/{id}', 'ProductController@show');
