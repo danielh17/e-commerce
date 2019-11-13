@@ -17,5 +17,6 @@ Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/', 'CategoryController@index');
 Route::post('/interests', 'InterestController@index');
-//Route::post('/products/{id}', 'ProductController@show');
-Route::get('/categories/{id}', 'ProductController@show');
+Route::get('/products/{id}', 'ProductController@show');
+Route::get('/categories/{id}', 'CategoryController@showProducts');
+Route::get('/create-form', 'ProductController@create');

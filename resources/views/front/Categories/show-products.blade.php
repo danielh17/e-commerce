@@ -1,4 +1,4 @@
-@extends(front.template)
+@extends('front.template')
 
 @section('pageTitle', 'Página de productos')
 
@@ -7,15 +7,17 @@
 @endsection
 
 @section('mainContent')
-<h2>Productos de la categoría {{category[name]}}</h2>
+
+{{-- Muestra todos los productos que pertenecen a la categoría seleccionada --}}
+
 <div class="row">
   <div class="col-12">
     <ul>
-      @foreach ($productsCategories as oneProductCategory)
+      @foreach ($products->category as $oneProduct)
        <li>
-        <a href="/products/{{ $product->id }}">{{$oneProductCategory->name}}</a>
-        <p><strong>Descripción</strong>{{ product($id)->description }}</p>
-        <h4>{{ product($id)->price }}</h4>
+        <a href="/products/{{ $oneProduct->id }}">{{ $oneProduct->name }}</a>
+        {{-- <p><strong>Descripción</strong>{{ $oneProduct->description }}</p> --}}
+        {{-- <h4>{{ $oneProduct->price }}</h4> --}}
        </li>
       @endforeach
     </ul>

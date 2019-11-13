@@ -21,10 +21,12 @@ class CategoryController extends Controller
         return view('front.index', compact('categories', 'products'));
     }
 
-    public function showProducts()
+    public function showProducts($id)
     {
-        $categories = Category::all();
-        return view('front.Category.show-products', compact('categories'));
+        $products = Product::find($id);
+        //$categories = Category::find($id);
+        //dd($products);
+        return view('front/Categories/show-products', compact('products'));
     }
 
     /**
@@ -56,7 +58,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
