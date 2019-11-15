@@ -12,15 +12,18 @@
 
 <div class="row">
   <div class="col-12">
-    <ul>
-      @foreach ($products as $oneProductCategory)
        <li>
-        <a href="/products/{{ $products->id }}">{{ $oneProductCategory->name }}</a>
-        <p><strong>Descripción</strong>{{ $oneProductCategory->description }}</p>
-        <h4>{{ $oneProductCategory->price }}</h4>
+         <h3>{{ $productDetail->name }}</h3>
+         <p><strong>{{ $productDetail->description }}</strong></p>
+         <h4>{{ $productDetail->price }}</h4>
        </li>
-      @endforeach
-    </ul>
+
+       <form action="/products/{{ $productDetail->id }}" method="post">
+         @csrf
+          {{ method_field('delete') }}
+          <a href="/products/{{ $productDetail->id }}/edit">Edit product</a>
+          <button type="submit" class="btn btn-danger">Delete product</button>
+       </form>
   </div>
  </div>
 @endsection

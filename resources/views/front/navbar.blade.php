@@ -61,14 +61,12 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/create-form" id='create'>Create Product</a>
+        <a class="nav-link" href="/products/create" id='create'>Create Product</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/edit-form" id='create'>Edit Product</a>
+        <a class="nav-link" href="/products" id='productsList'>Product list</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Remove" id='create'>Remove Product</a>
-      </li>
+
       @endif
     </ul>
     <form class="form-inline my-2 my-lg-0">

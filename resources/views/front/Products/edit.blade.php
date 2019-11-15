@@ -12,14 +12,15 @@
 
 <form action="/products" method="post" enctype="multipart/form-data">
 		@csrf
-		<div class="row">
+    {{ method_field('put') }}
+    <div class="row">
 			<div class="col-6">
 				<div class="form-group">
 					<label>Name</label>
 					<input
 						type="text"
 						name="name"
-						value="{{ $errors->has('name') ? null : old('name') }}"
+						value="{{ old('name', $productToEdit->name) }}"
 						class="form-control"
 					>
 					@error('name')
@@ -36,7 +37,7 @@
 					<input
 						type="decimal"
 						name="price"
-						value="{{ old('price') }}"
+						value="{{ old('price', $productToEdit->price) }}"
 						class="form-control"
 					>
 					@if ($errors->has('price'))
@@ -53,7 +54,7 @@
 					<input
 						type="text"
 						name="description"
-						value="{{ old('description') }}"
+						value="{{ old('description', $productToEdit->description) }}"
 						class="form-control"
 					>
 					@if ($errors->has('description'))
@@ -67,7 +68,7 @@
       <div class="col-6">
 				<div class="form-group">
 					<label>Categories</label>
-					<select class="form-control" name="categorie_id[]" multiple>
+					<select class="form-control" name="categories_id[]" multiple>
 						@foreach ($categories as $category)
 							<option value="{{ $category->id }}">{{ $category->name }}</option>
 						@endforeach
@@ -93,7 +94,7 @@
 			</div>
 
 			<div class="col-12">
-				<button type="submit" class="btn btn-success">Submit</button>
+				<button type="submit" class="btn btn-success">Update</button>
 			</div>
 		</div>
 	</form>
