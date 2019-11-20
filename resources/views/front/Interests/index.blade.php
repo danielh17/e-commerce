@@ -1,4 +1,4 @@
-@extends(front.template)
+@extends('front.template')
 
 @section('pageTitle', 'Página de intereses')
 
@@ -20,8 +20,9 @@
         @endforeach
       </ul>
     </div>
+    <form action="/products/{{ $productToShow->id }" method="post">
+      <button type="submit" name="button" class="btn btn-primary">Buscar</button>
+    </form>
   </div>
-  <form action="/product/{{ $productToShow->id }}" method="post">
-    <button type="submit" name="button" class="btn btn-primary">Buscar</button>
-  </form>
+</div>
 @endsection

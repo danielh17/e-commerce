@@ -132,14 +132,14 @@ class ProductController extends Controller
 
       $productToUpdate->categories()->sync($request->input('categories_id'));
 
-      //$image = $request->file('image');
+      $image = $request->file('image');
 
-      //if($image) {
-        //$finalImage = uniqid('img_') . "." . $image->extension();
-        //$image->storePubliclyAs('storage/products', $finalImage);
+      if($image) {
+        $finalImage = uniqid('img_') . "." . $image->extension();
+        $image->storePubliclyAs('storage/products', $finalImage);
 
-        //$productToUpdate->image = $finalImage;
-    //  }
+        $productToUpdate->image = $finalImage;
+      }
 
       $productToUpdate->save();
 

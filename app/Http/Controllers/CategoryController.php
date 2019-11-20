@@ -24,9 +24,9 @@ class CategoryController extends Controller
     public function showProducts($id)
     {
         $products = Product::find($id);
-        //$categories = Category::find($id);
-        //dd($products);
-        return view('front/Categories/show-products', compact('products'));
+        $categories = Category::find($id);
+        //dd($categories);
+        return view('front/Categories/show-products', compact('products', 'categories'));
     }
 
     /**

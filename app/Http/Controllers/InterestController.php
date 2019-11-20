@@ -17,7 +17,9 @@ class InterestController extends Controller
     public function index()
     {
         $interests = Interest::all();
-        return view('front.Interests.index', compact('interests'));
+        $productToShow = Product::all();
+        //dd($productToShow);
+        return view('front.Interests.index', compact('interests', 'productToShow'));
     }
 
     /**

@@ -22,7 +22,7 @@
   </div>
   <div class="col-4">
     <h3>Te ayudamos a encontrar el regalo que buscás</h3>
-    <form action="/interests" method="post">
+    <form action="/interests" method="get">
       <button type="submit" class="btn btn-info">Learn more</button>
     </form>
   </div>
