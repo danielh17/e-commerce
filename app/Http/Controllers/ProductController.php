@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get();
-
+        //dd($categories);
         return view('front.Products.create', compact('categories'));
     }
 
@@ -63,9 +63,9 @@ class ProductController extends Controller
       $product->name = $request->input('name');
       $product->Price = $request->input('price');
       $product->description = $request->input('description');
-      $product->category_id = $request->input('categories_id');
+      $product->category_id = $request->input('category_id');
 
-      $product->categories()->sync($request->input('categories_id'));
+      $product->category()->sync($request->input('category_id'));
 
       //$image = $request->file('image');
 

@@ -66,17 +66,14 @@
 
       <div class="col-6">
 				<div class="form-group">
-					<label>Categories</label>
-					<select class="form-control" name="categories_id[]" multiple>
-						@foreach ($categories as $category)
-							<option value="{{ $category->id }}">{{ $category->name }}</option>
-						@endforeach
-					</select>
-					@if ($errors->has('category_id'))
-						<span class="text-danger">
-							{{ $errors->first('category_id') }}
-						</span>
-					@endif
+          <ul style="margin-top:25px">
+            @foreach ($categories as $category)
+              <li>
+                {{ $category->name }}
+                <input type="checkbox" name="category_id" value="{{ $category->id }}">
+              </li>
+            @endforeach
+          </ul>
 				</div>
 			</div>
 
