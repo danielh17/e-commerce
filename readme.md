@@ -1,13 +1,15 @@
-Una vez clonado el archivo, renombrar el archivo .env.example por .env
-Luego: php artisan key generate
-El nombre de la base de datos es dandelion2
-el username es root
-el password no tiene
-Para que funcione la base de datos habría que crear una vacía con el nombre dandelion2
-y después ejecutar el comando: php artisan migrate:fresh
-Luego php artisan db:seed (para popular la base de datos)
-Por último: php artisan serve (para poder ver el proyecto en el servidor) 
-
+- Clonar archivo
+- Escribir comando "composer install"
+- Renombrar archivo ".env.example" por ".env"
+- Escribir comando "php artisan key generate"
+- Nombre de la base de datos, dandelion2
+- Username, root
+- Password, no tiene
+- Crear base de datos vacía MySQL
+- Ejecutar comando "php artisan migrate:fresh"
+- Ejecutar comando "php artisan db:seed"
+- Ejecutar comando "php artisan serve"
+- Abrir servidor "localhost:8000"
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
