@@ -63,18 +63,20 @@ class ProductController extends Controller
       $product->name = $request->input('name');
       $product->Price = $request->input('price');
       $product->description = $request->input('description');
-      $product->category_id = $request->input('category_id');
+      //$product->category_id = $request->input('category_id');
+      $category = $request->input('category_id');
+      //dd($product);
+      $product->category()->attach($request->input($category));
 
-      $product->category()->sync($request->input('category_id'));
 
-      //$image = $request->file('image');
+      $image = $request->file('image');
 
-      //if($image) {
-        //$finalImage = uniqid('img_') . "." . $image->extension();
-        //$image->storePubliclyAs('storage/products', $finalImage);
+      if($image) {
+        $finalImage = uniqid('img_') . "." . $image->extension();
+        $image->storePubliclyAs('storage/products', $finalImage);
 
-        //$product->image = $finalImage;
-    //  }
+      $product->image = $finalImage;
+      }
 
       $product->save();
 
