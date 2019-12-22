@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
+
 class LoginController extends Controller
 {
     /*
@@ -39,9 +40,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-      //auth()->logout();
+      //Auth::logout();
       //return redirect('/');
 
     }

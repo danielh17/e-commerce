@@ -3,14 +3,14 @@
 @section('pageTitle', 'Página para crear producto')
 
 @section('stylesheet')
-<link rel="stylesheet" href="{{ URL::asset('/css/products.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('/css/create-form.css') }}">
 @endsection
 
 @section('mainContent')
 
 {{-- Muestra el formulario de alta de producto --}}
 
-<form action="/products" method="post" enctype="multipart/form-data">
+<form action="/products" method="post" enctype="multipart/form-data" style="margin-top:50px;">
 		@csrf
 		<div class="row">
 			<div class="col-6">
@@ -64,16 +64,19 @@
 				</div>
 			</div>
 
-      <div class="col-6">
+			<div class="col-6">
 				<div class="form-group">
-          <ul style="margin-top:25px">
-            @foreach ($categories as $category)
-              <li>
-                {{ $category->name }}
-                <input type="checkbox" name="category_id" value="{{ $category->id }}">
-              </li>
-            @endforeach
-          </ul>
+					<label>Categories</label>
+					<select class="form-control" name="categories_id[]" multiple>
+						@foreach ($categories as $category)
+							<option value="{{ $category->id }}">{{ $category->name }}</option>
+						@endforeach
+					</select>
+					@if ($errors->has('category_id'))
+						<span class="text-danger">
+							{{ $errors->first('category_id') }}
+						</span>
+					@endif
 				</div>
 			</div>
 

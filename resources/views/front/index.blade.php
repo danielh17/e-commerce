@@ -53,6 +53,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="row">
   <div class="col-6">
     <h2>Productos</h2>
@@ -67,4 +69,6 @@
     </div>
   </div>
 </div>
+
+
 @endsection

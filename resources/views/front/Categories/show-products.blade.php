@@ -13,7 +13,7 @@
 <div class="row">
   <div class="col-12">
     <ul>
-      @foreach ($products->category as $oneProduct)
+      @foreach ($categories->product as $oneProduct)
        <li>
         <a href="/products/{{ $oneProduct->id }}">{{ $oneProduct->name }}</a>
         {{-- <p><strong>Descripción</strong>{{ $oneProduct->description }}</p> --}}

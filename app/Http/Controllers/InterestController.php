@@ -17,9 +17,9 @@ class InterestController extends Controller
     public function index()
     {
         $interests = Interest::all();
-        $productToShow = Product::all();
-        //dd($productToShow);
-        return view('front.Interests.index', compact('interests', 'productToShow'));
+        $product = Product::all();
+        //dd($product);
+        return view('front.Interests.index', compact('interests', 'product'));
     }
 
     /**
@@ -51,9 +51,10 @@ class InterestController extends Controller
      */
     public function show($id)
     {
-        $productsInterest = Product::find($id);
-
-        return view('front.Interest.show-products', compact('productsInterest'));
+        // mostrar productos de las categorías que estén relaionadas a cada interés
+        //$productsInterest = Product::find($id);
+        $categoriesId = Category::find($id);
+        return view('front.Interests.show-products', compact('categoriesId'));
     }
 
     /**

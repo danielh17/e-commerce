@@ -46,7 +46,7 @@ class ProductController extends Controller
 
           'name' => ['required', 'max:20'],
           'price' => ['required', 'max:10'],
-          'description' => ['max:40'],
+          'description' => ['required', 'max:40'],
           'image' => ['image']
 
         ],
@@ -55,6 +55,7 @@ class ProductController extends Controller
         'name.max' => 'El máximo de caracteres es de 20',
         'price.required' => 'El campo price es obligatorio',
         'price.max' => 'El campo price no puede tener más de 10 números',
+        'description' => 'La descripción es obligatoria',
         'description.max' => 'La descripción no puede tener más de 40 caracteres',
         'image' => 'Los formatos aceptados son jpeg, png, bmp, gif, or svg',
       ]);
@@ -64,22 +65,28 @@ class ProductController extends Controller
       $product->Price = $request->input('price');
       $product->description = $request->input('description');
       //$product->category_id = $request->input('category_id');
-      $category = $request->input('category_id');
-      //dd($product);
-      $product->category()->attach($request->input($category));
+
 
 
       $image = $request->file('image');
 
       if($image) {
         $finalImage = uniqid('img_') . "." . $image->extension();
-        $image->storePubliclyAs('storage/products', $finalImage);
-
+        $image->storePubliclyAs('public/products', $finalImage);
+        //dd($image->storePubliclyAs('storage/products', $finalImage));
       $product->image = $finalImage;
       }
 
-      $product->save();
+      $categories = $request->input('categories_id[]');
 
+      $product->category()->attach($categories);
+
+      $product->save();
+      //dd($product->category);
+
+      //dd($product->category);
+
+      //dd($product->category());
 
       //$product = Product::create($request->('_token'));
 
@@ -132,13 +139,13 @@ class ProductController extends Controller
       $productToUpdate = $request->input('price');
       $productToUpdate = $request->input('description');
 
-      $productToUpdate->categories()->sync($request->input('categories_id'));
-
+      $productToUpdate->category()->sync($request->input('categories_id[]'));
+      //dd($productToUpdate->category);
       $image = $request->file('image');
 
       if($image) {
         $finalImage = uniqid('img_') . "." . $image->extension();
-        $image->storePubliclyAs('storage/products', $finalImage);
+        $image->storePubliclyAs('public/products', $finalImage);
 
         $productToUpdate->image = $finalImage;
       }
@@ -148,7 +155,7 @@ class ProductController extends Controller
 
       //$product = Product::create($request->('_token'));
 
-      return redirect('/products');
+      return view ('/products');
     }
 
     /**
@@ -160,6 +167,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
       $productToDelete = Product::find($id);
+
       $productToDelete->delete();
+
+      return redirect('/products');
     }
 }

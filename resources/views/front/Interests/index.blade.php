@@ -20,9 +20,10 @@
         @endforeach
       </ul>
     </div>
-    <form action="/products/{{ $productToShow->id }" method="post">
+    {{-- <form action="/products/{{ $product->id }}" method="post">
+      @csrf
       <button type="submit" name="button" class="btn btn-primary">Buscar</button>
-    </form>
+    </form> --}}
   </div>
 </div>
 @endsection
