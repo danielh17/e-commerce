@@ -15,7 +15,7 @@
 
 <form action="/products" method="post" enctype="multipart/form-data" style="margin-top:50px;">
 		@csrf
-    {{ method_field('put') }}
+    {{-- {{ method_field('put') }} --}} 
     <div class="row">
 			<div class="col-6">
 				<div class="form-group">

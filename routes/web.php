@@ -15,16 +15,21 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('index');
 
+Route::middleware('auth')->group(function()
+{
+  Route::get('/products/create', 'ProductController@create');
+  Route::post('/products', 'ProductController@store');
+  Route::delete('/products/{id}', 'ProductController@destroy');
+  Route::get('/products/{id}/edit', 'ProductController@edit');
+});
+
+//Route::resource('/products', 'ProductController')->except(['create', 'destroy', 'edit']);
 Route::get('/', 'CategoryController@index');
 Route::get('/interests', 'InterestController@index');
-Route::get('/products/create', 'ProductController@create');
-Route::put('/products/{id}', 'ProductController@update');
+Route::post('/products/{id}', 'ProductController@update');
 Route::get('/categories/{id}', 'CategoryController@showProducts');
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/products', 'ProductController@index');
-Route::get('/products/{id}/edit', 'ProductController@edit');
-Route::delete('/products/{id}', 'ProductController@destroy');
-Route::post('/products', 'ProductController@store');
 Route::post('/products/{id}', 'InterestController@show');
 Route::post('logout', function (){
   Auth::logout();

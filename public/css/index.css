@@ -13,3 +13,31 @@ ul {
 a {
   color: white;
 }
+
+.category {
+  background-color: white;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+  width: 120px;
+}
+
+.category a {
+  color: black;
+  padding-right: 0;
+}
+
+.category li {
+  margin-left: 0;
+  padding-right: 0;
+}
+
+.category ul {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+img {
+  width: 180px;
+  height: 150px;
+}

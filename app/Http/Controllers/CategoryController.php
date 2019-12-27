@@ -22,6 +22,14 @@ class CategoryController extends Controller
         return view('front.index', compact('categories', 'products'));
     }
 
+    public function categoryIndex()
+    {
+        $categories = Category::all();
+        $products = Product::all();
+
+        return view('front.Categories.index', compact('categories', 'products'));
+    }
+
     public function showProducts($id)
     {
         $products = Product::find($id);

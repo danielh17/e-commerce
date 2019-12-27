@@ -65,7 +65,7 @@ class ProductController extends Controller
       $product->Price = $request->input('price');
       $product->description = $request->input('description');
       //$product->category_id = $request->input('category_id');
-
+      //dd($product);
 
 
       $image = $request->file('image');
@@ -77,11 +77,21 @@ class ProductController extends Controller
       $product->image = $finalImage;
       }
 
-      $categories = $request->input('categories_id[]');
 
-      $product->category()->attach($categories);
+
+
+      //foreach ($category as $categories_id) {
+        // code...
+      //}
+      //$category = new Category;
+      //$category->product()->sync($product->'id');
 
       $product->save();
+
+      $categories = $request->categories_id;
+      $product->category()->attach($categories);
+      //dd($categories);
+
       //dd($product->category);
 
       //dd($product->category);
@@ -139,7 +149,7 @@ class ProductController extends Controller
       $productToUpdate = $request->input('price');
       $productToUpdate = $request->input('description');
 
-      $productToUpdate->category()->sync($request->input('categories_id[]'));
+
       //dd($productToUpdate->category);
       $image = $request->file('image');
 
@@ -152,10 +162,10 @@ class ProductController extends Controller
 
       $productToUpdate->save();
 
-
+      $productToUpdate->category()->attach($request->categories_id);
       //$product = Product::create($request->('_token'));
 
-      return view ('/products');
+      return redirect ('/products');
     }
 
     /**

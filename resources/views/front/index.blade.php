@@ -7,8 +7,8 @@
 @endsection
 
 @section('mainContent')
-<div class="row" style="margin-top:50px; margin-left:30px">
-  <div class="col-4">
+<div class="row" style="margin-top:50px">
+  <div class="col-3">
     <h2>Categorías</h2>
     <div class="category">
       <ul style="margin-top:25px">
@@ -20,12 +20,12 @@
       </ul>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-9">
     <h3>Te ayudamos a encontrar el regalo que buscás</h3>
     <form action="/interests" method="get">
-      <button type="submit" class="btn btn-info">Learn more</button>
+      <button type="submit" class="btn btn-info" style="margin-bottom:25px">Learn more</button>
     </form>
-    <div class="carusel" style="margin-top:100px">
+    {{-- <div class="carusel" style="margin-top:30px; margin-bottom: 30px;">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -49,13 +49,34 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
     </div>
+  </div> --}}
+  {{-- <div class="row">
+    <div class="col-3">
+      <img src="/storage/products/regaloPopCorn.jpeg" alt="">
+    </div>
+    <div class="col-3">
+      <img src="/storage/products/recital.jpeg" alt="">
+    </div>
+    <div class="col-3">
+      <img src="/storage/products/desfile.jpeg" alt="">
+    </div>
+  </div>
   </div>
 </div>
 
-
 <div class="row">
+  <div class="col-2">
+    <img src="/storage/products/regalo1.jpg" alt="">
+  </div>
+  <div class="col-2">
+    <img src="/storage/products/regalo2.jpeg" alt="">
+  </div>
+</div>
+ --}}
+
+
+{{-- <div class="row">
   <div class="col-6">
     <h2>Productos</h2>
     <div class="product">
@@ -68,7 +89,7 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
 
 @endsection
